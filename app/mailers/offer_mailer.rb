@@ -1,5 +1,5 @@
 class OfferMailer < ActionMailer::Base
-  default to: 'aduff@laingorourke.com'
+  default to: 'alistair.g.duff@gmail.com'
   
   def offer_email(client_name, email, body)
     @name = client_name
