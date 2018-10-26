@@ -1,5 +1,8 @@
 class OffersController < ApplicationController
   
+  def index
+  end
+  
   # GET request to /offers/new
   # Show new contact form
   def new
