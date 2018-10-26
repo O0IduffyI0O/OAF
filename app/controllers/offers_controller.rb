@@ -24,11 +24,13 @@ class OffersController < ApplicationController
       # and send email
       OfferMailer.offer_email(name, email, mobile, delivery_address, postcode, description, comments).deliver
        # Redirect to the "new" action
-      redirect_to new_offer_path, notice: "Message Sent."
+       flash[:success] = "Message Sent!"
+      redirect_to new_offer_path
     else
       # If Offer object doesn't save
       # redirect to the "new" action
-      redirect_to new_offer_path, notice: "Error Occured!"
+      flash[:error] = @offer.errors.full_messages.join(", ")
+      redirect_to new_offer_path
     end
   end
   
