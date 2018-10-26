@@ -15,10 +15,14 @@ class OffersController < ApplicationController
       # Store form fields via paramaters into variables
       name = params[:offer][:client_name]
       email = params[:offer][:email]
-      body = params[:offer][:order_description]
+      mobile = params[:offer][:mobile]
+      delivery_address = params[:offer][:delivery_address]
+      postcode = params[:offer][:postcode]
+      description = params[:offer][:order_description]
+      comments = params[:offer][:comments]
       # Plug variables into Contact Mailer email method
       # and send email
-      OfferMailer.offer_email(name, email, body).deliver
+      OfferMailer.offer_email(name, email, mobile, delivery_address, postcode, description, comments).deliver
        # Redirect to the "new" action
       redirect_to new_offer_path, notice: "Message Sent."
     else

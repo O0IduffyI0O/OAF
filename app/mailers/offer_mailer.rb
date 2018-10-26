@@ -1,10 +1,14 @@
 class OfferMailer < ActionMailer::Base
-  default to: 'alistair.g.duff@gmail.com'
+  default to: 'aduff@laingorourke.com'
   
-  def offer_email(client_name, email, body)
+  def offer_email(client_name, email, mobile, delivery_address, postcode, description, comments)
     @name = client_name
     @email = email
-    @body = body
+    @mobile = mobile
+    @delivery_address = delivery_address
+    @postcode = postcode
+    @description = description
+    @comments = comments
     
     mail(from: email, subject: 'Offer Form Message')
   end
