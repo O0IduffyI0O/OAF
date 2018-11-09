@@ -1,5 +1,25 @@
-<h1>index</h1>
+<h1>Enquiries:</h1>
 
-<% Offer.all.each do |offer| %>
-    <p><%= "#{ offer[:client_name] } - #{ offer[:order_description] }" %></p>
-<% end %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Order Details</th>
+      <th scope="col">Comments</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% Offer.all.each do |offer| %>
+      <tr>
+        <th scope="row"><%= "#{ offer[:client_name] }" %></th>
+        <td><%= "#{ offer[:email] }" %></td>
+        <td><%= "#{ offer[:order_description] }" %></td>
+        <td><%= "#{ offer[:comments] }" %></td>
+        <td>
+          <button type="button" class="btn btn-primary">View</button>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

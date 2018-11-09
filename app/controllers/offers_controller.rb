@@ -1,8 +1,5 @@
 class OffersController < ApplicationController
   
-  def index
-  end
-  
   # GET request to /offers/new
   # Show new contact form
   def new
@@ -34,6 +31,16 @@ class OffersController < ApplicationController
       # redirect to the "new" action
       flash[:error] = @offer.errors.full_messages.join(", ")
       redirect_to new_offer_path
+    end
+  end
+  
+  def index
+  end
+  
+  def show
+    @offer = Offer.find_by(id: params[:id])
+    if @offer.nil?
+        redirect_to offers_path
     end
   end
   
