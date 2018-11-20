@@ -1,4 +1,22 @@
-<p><%= @project[:name]%></p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @project[:name]%></h1>
+    <p class="lead"><%= "#{@project[:contractor]}, #{@project[:contact]}"%></p>
+  </div>
+</div>
 
-<p>Orders</p>
-<p><%= @project.orders.first.price %></p>
+<% @project.orders.all.each do |order| %>
+  <div class="card">
+    <div class="card-header">
+      <%= "Order ID: #{order[:id]}" %>
+    </div>
+    <div class="card-body">
+      <p class="card-text"><%= "Workers: #{order[:n_workers_female] + order[:n_workers_male]}"%></p>
+      <p class="card-text"><%= "Office Staff: #{order[:n_office_staff]}"%></p>
+      <p class="card-text"><%= "Price: £#{order[:price]}"%></p>
+      <%= link_to "Edit", project_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "New Order", new_order_path, class: "btn btn-primary" %>
