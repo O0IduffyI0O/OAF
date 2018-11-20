@@ -19,4 +19,4 @@
   </div>
 <% end %>
 
-<%= link_to "New Order", new_order_path, class: "btn btn-primary" %>
+<%= link_to "New Order", new_order_path(project: @project.id), class: "btn btn-primary" %>

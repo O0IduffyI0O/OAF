@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     
     private
     def order_params
-        params.require(:order).permit(:n_workers_male, :n_workers_female, :n_office_staff)
+        params.require(:order).permit(:n_workers_male, :n_workers_female, :n_office_staff, :project_id)
     end
     
 end
