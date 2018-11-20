@@ -24,6 +24,16 @@ ActiveRecord::Schema.define(version: 2018_11_20_110513) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "n_workers_male"
+    t.integer "n_workers_female"
+    t.integer "n_office_staff"
+    t.integer "price"
+    t.text "comment"
+    t.index ["project_id"], name: "index_orders_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "contractor"
