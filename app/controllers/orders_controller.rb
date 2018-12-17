@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
         @order = @project.orders.build( order_params )
         if @order.save
             flash[:success] = "Order Saved"
-            redirect_to root_path
+            redirect_to project_path( params[:project_id] )
         else
             flash[:error] = @order.errors.full_messages.join(", ")
             redirect_to root_path
