@@ -1,0 +1,4 @@
+Errors to fix
+* Handle when nothing is added to new order form - done
+* Handle when 0 is added to new order form - complete
+* Handle when not number added to new order form - done

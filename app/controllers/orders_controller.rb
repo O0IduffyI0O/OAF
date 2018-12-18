@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
             redirect_to project_path( params[:project_id] )
         else
             flash[:error] = @order.errors.full_messages.join(", ")
-            redirect_to root_path
+            redirect_to new_project_orders_path( params[:project_id] )
         end
     end
     
