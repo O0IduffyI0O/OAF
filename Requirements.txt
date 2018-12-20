@@ -5,3 +5,12 @@ Errors to fix
 
 Features
 * Project photo across /project/:project_id
+* Eventually Select users have a dashboard with Project>Order>Tasks
+
+Users
+* When creating a project, auto-fill contractor and contact from user
+* Users can only see projects from their contractor
+* Select users can see all projects
+
+Select Side
+* Tasks allocated and passed along the line
