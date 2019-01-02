@@ -1,0 +1,5 @@
+class AddContractorToUsers < ActiveRecord::Migration[5.2]
+  def change
+    add_reference :users, :contractor, index: true
+  end
+end

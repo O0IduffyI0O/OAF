@@ -5,7 +5,9 @@ class ProjectsController < ApplicationController
     end
     
     def create
-        @project = Project.new(project_params)
+        @contractor = current_user.contractor
+        @project = @contractor.projects.build( project_params )
+        @project.contact = "#{current_user.first_name}" + " " + "#{current_user.last_name}"
         if @project.save
             redirect_to projects_path
         else
@@ -23,7 +25,7 @@ class ProjectsController < ApplicationController
     
     private
         def project_params
-            params.require(:project).permit(:name, :contractor, :contact, :avatar)
+            params.require(:project).permit(:name, :avatar)
         end
 
 end

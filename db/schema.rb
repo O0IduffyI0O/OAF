@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_19_134948) do
+ActiveRecord::Schema.define(version: 2019_01_02_152033) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,12 @@ ActiveRecord::Schema.define(version: 2018_12_19_134948) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "contractors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "offers", force: :cascade do |t|
     t.string "client_name"
     t.string "email"
@@ -52,6 +58,8 @@ ActiveRecord::Schema.define(version: 2018_12_19_134948) do
     t.integer "n_office_staff"
     t.integer "price"
     t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_orders_on_project_id"
   end
 
@@ -61,6 +69,8 @@ ActiveRecord::Schema.define(version: 2018_12_19_134948) do
     t.string "contact"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contractor_id"
+    t.index ["contractor_id"], name: "index_projects_on_contractor_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,6 +81,10 @@ ActiveRecord::Schema.define(version: 2018_12_19_134948) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "contractor_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.index ["contractor_id"], name: "index_users_on_contractor_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

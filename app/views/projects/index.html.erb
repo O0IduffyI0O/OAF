@@ -11,9 +11,13 @@
   <tbody>
     <% Project.all.each do |project| %>
       <tr>
-        <th scope="row"><%= "#{ project[:name] }" %></th>
-        <td><%= "#{ project[:contractor] }" %></td>
-        <td><%= "#{ project[:contact] }" %></td>
+        <th scope="row"><%= "#{ project.name }" %></th>
+        <% if project.contractor_id? %>
+          <td><%= "#{ project.contractor.name }" %></td>
+        <% else %>
+          <td> - </td>
+        <% end %>
+        <td><%= "#{ project.contact }" %></td>
         <td><%= link_to "View", project_path(project), class: "btn btn-primary" %></td>
       </tr>
     <% end %>
