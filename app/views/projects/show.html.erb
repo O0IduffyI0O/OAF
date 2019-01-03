@@ -15,9 +15,9 @@
       <p class="card-text"><%= "Workers: #{order[:n_workers_female] + order[:n_workers_male]}"%></p>
       <p class="card-text"><%= "Office Staff: #{order[:n_office_staff]}"%></p>
       <p class="card-text"><%= "Price: £#{order[:price]}"%></p>
-      <%= link_to "Edit", project_path, class: "btn btn-primary" %>
+      <%= link_to "View", project_order_path(project_id: @project.id, id: order.id), class: "btn btn-primary" %>
     </div>
   </div>
 <% end %>
 
-<%= link_to "New Order", new_project_orders_path(project_id: @project.id), class: "btn btn-primary" %>
+<%= link_to "New Order", new_project_order_path(project_id: @project.id), class: "btn btn-primary" %>
