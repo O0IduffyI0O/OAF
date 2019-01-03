@@ -1,7 +1,8 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4"><%= @project[:name]%></h1>
-    <p class="lead"><%= "#{@project[:contractor]}, #{@project[:contact]}"%></p>
+    <h1 class="display-4"><%= @project.name %></h1>
+    <h5><%= @project.contractor.name %></h5>
+    <p class="lead"><%= @project.contact %></p>
   </div>
 </div>
 
