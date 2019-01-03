@@ -2,19 +2,19 @@
 
 <nav>
   <div class="nav nav-tabs" id="orderComponentTabs" role="tablist">
-    <a class="nav-item nav-link active" id="nav-summary-tab" data-toggle="tab" href="#nav-summary" role="tab" aria-controlls="nav-summary" aria-selected="true">Summary</a>
-    <a class="nav-item nav-link" id="nav-preparation-tab" data-toggle="tab" href="#nav-preparation" role="tab" aria-controlls="nav-preparation" aria-selected="false">Upfront Preparation</a>
-    <a class="nav-item nav-link" id="nav-installation-tab" data-toggle="tab" href="#nav-installation" role="tab" aria-controlls="nav-installation" aria-selected="false">Installation</a>
+    <a class="nav-item nav-link active" id="nav-summary-tab" data-toggle="tab" href="#nav-summary" role="tab" aria-controlls="nav-summary" aria-selected="true">Job Costing</a>
+    <a class="nav-item nav-link" id="nav-preparation-tab" data-toggle="tab" href="#nav-preparation" role="tab" aria-controlls="nav-preparation" aria-selected="false">Technical Drawings</a>
+    <a class="nav-item nav-link" id="nav-installation-tab" data-toggle="tab" href="#nav-installation" role="tab" aria-controlls="nav-installation" aria-selected="false">Programme of Works</a>
   </div>
 </nav>
 <div class="tab-content" id="orderComponentTabsContent">
   <div class="tab-pane fade show active" id="nav-summary" role="tabpane1" aria-labelledby="nav-summary-tab">
-    Summary goes here. This will show a list similar to what we send currently as order sheets.
+    <%= render 'summaryTable' %>
   </div>
   <div class="tab-pane fade" id="nav-preparation" role="tabpane1" aria-labelledby="nav-preparation-tab">
-    Breakdown of preparation costs here
+    Technical Drawings would go here
   </div>
   <div class="tab-pane fade" id="nav-installation" role="tabpane1" aria-labelledby="nav-installation-tab">
-    Breakdown of installation costs here
+    Programme of Works here
   </div>
 </div>
