@@ -1,20 +1,18 @@
 <h1>Homepage</h1>
 
 <% if user_signed_in? %>
-  <% Project.all.each_slice(3) do |projects| %>
-    <div class="row">
-      <% projects.each do |project| %>
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class"card-title"><%= project.name %></h5>
-              <h6 class="card-subtitle mb-2 text-muted"><%= project.contractor.name %></h6>
-              <p class="card-text">Example text to build on the card title and make up the bulk of the card's content</p>
-              <%= link_to "View", project_path(project), class: "btn btn-primary" %>
-            </div>
-          </div>
+  <div class="card-deck">
+    <% Project.all.each do |project| %>
+      <% if project.contractor_id == current_user.contractor_id %>
+        <div class="card">
+          <dev class="card-body">
+            <h5 class="card-title"><%= project.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= project.contractor.name %></h6>
+            <p class="card-text">Example text to build on the card title and make up the bulk of the card's content</p>
+            <%= link_to "View", project_path(project), class: "btn btn-primary" %>
+          </dev>
         </div>
       <% end %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>

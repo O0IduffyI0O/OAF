@@ -37,14 +37,18 @@
               <%= link_to "Offer Form", new_offer_path, class: "dropdown-item" %>
             </div>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Projects
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <%= link_to "Projects", projects_path, class:"dropdown-item" %>
-              <%= link_to "New Project", new_project_path, class:"dropdown-item" %>
-            </div>
+          <% if user_signed_in? %>
+            <% if current_user.contractor_id == 3 %>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Projects
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <%= link_to "Projects", projects_path, class:"dropdown-item" %>
+                  <%= link_to "New Project", new_project_path, class:"dropdown-item" %>
+                </div>
+              <% end %>
+            <% end %>
           </li>
         </ul>
         <div class="nav navbar-nav ml-auto">
