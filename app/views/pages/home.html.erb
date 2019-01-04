@@ -17,4 +17,8 @@
   </div>
 <% end %>
 
-<h5>To Do:</h5>
+<% if user_signed_in? %>
+  <% if current_user.contractor.name == "Select" %>
+    <h5>To Do:</h5>
+  <% end %>
+<% end %>
